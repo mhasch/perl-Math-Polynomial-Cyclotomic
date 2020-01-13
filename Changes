@@ -1,5 +1,9 @@
 Revision history for Math-Polynomial-Cyclotomic
 
+0.003   ?
+        - Added cyclo_plusfactors.
+        - Removed cyclo_factors_iterate.
+
 0.002   2019-12-31
         - Added optional arguments controlling memoization.
 

@@ -10,7 +10,7 @@ use warnings;
 use Math::Polynomial;
 use Math::Polynomial::Cyclotomic qw(:all);
 
-use Test::More tests => 17;
+use Test::More tests => 18;
 
 my $p1 = cyclo_poly(1);
 is($p1->as_string, '(x - 1)');
@@ -35,24 +35,26 @@ is($it->()->as_string, '(x^2 + 1)');
 is($it->()->as_string, '(x^4 + x^3 + x^2 + x + 1)');
 is($it->()->as_string, '(x^2 - x + 1)');
 
-$it = cyclo_factors_iterate();
-my @f1 = $it->();
-ok(@f1 == 1 && $f1[0] == $p1);
-my @f2 = $it->();
-ok(@f2 == 2 && $f2[0] == $p1);
-
 my $p27 = $p3->cyclotomic(27);
 ok($p27->degree == 18 && $p27->evaluate(1) == 3);
 
 my @f27 = $p3->cyclo_factors(27);
-ok(4 == @f27 && $f27[-1] == $p27);
+ok(4 == @f27 && $f27[3] == $p27);
 
 $it = $p3->cyclo_poly_iterate(20);
 my $p20 = $it->();
 is($p20->degree, 8);
 
-$it = $p3->cyclo_factors_iterate(20);
-my @f20 = $it->();
-ok(6 == @f20 && $f20[-1] == $p20);
+my @f20 = $p3->cyclo_factors(20);
+ok(6 == @f20 && $f20[5] == $p20);
+
+my @pf3 = cyclo_plusfactors(3);
+ok(2 == @pf3 && $pf3[1] == $p6);
+
+my @pf4 = cyclo_plusfactors(4);
+ok(1 == @pf4 && $pf4[0]->evaluate(2) == 17);
+
+my @pf6 = cyclo_plusfactors(6);
+ok(2 == @pf6 && $pf6[0]->evaluate(6) == 37 && $pf6[1]->evaluate(6) == 1261);
 
 __END__
