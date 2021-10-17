@@ -1,4 +1,4 @@
-# Copyright (c) 2019 by Martin Becker, Blaubeuren.
+# Copyright (c) 2019-2021 by Martin Becker, Blaubeuren.
 # This package is free software; you can distribute it and/or modify it
 # under the terms of the Artistic License 2.0 (see LICENSE file).
 
@@ -10,7 +10,7 @@ use warnings;
 use Math::Polynomial;
 use Math::Polynomial::Cyclotomic qw(:all);
 
-use Test::More tests => 18;
+use Test::More tests => 19;
 
 my $p1 = cyclo_poly(1);
 is($p1->as_string, '(x - 1)');
@@ -23,6 +23,9 @@ is($p6->as_string, '(x^2 - x + 1)');
 
 my $p15 = cyclo_poly(15);
 is($p15->as_string, '(x^8 - x^7 + x^5 - x^4 + x^3 - x + 1)');
+
+my $p105 = cyclo_poly(105);
+ok($p105->coeff(7) == -2);
 
 my @f15 = cyclo_factors(15);
 ok(4 == @f15 && $f15[-1] == $p15);

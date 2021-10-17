@@ -1,7 +1,11 @@
 Revision history for Math-Polynomial-Cyclotomic
 
-0.003   ?
+0.003   2021-10-17
         - Added cyclo_plusfactors.
+        - Added cyclo_int_factors.
+        - Added cyclo_int_plusfactors.
+        - Added cyclo_lucas_cd.
+        - Added cyclo_schinzel_cd.
         - Removed cyclo_factors_iterate.
 
 0.002   2019-12-31
