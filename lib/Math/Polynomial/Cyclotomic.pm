@@ -344,10 +344,11 @@ Andrzej Schinzel.
 =head1 SYNOPSIS
 
   use Math::Polynomial::Cyclotomic qw(
-    cyclo_poly cyclo_factors cyclo_plusfactors cyclo_poly_iterate
-    cyclo_lucas_cd cyclo_int_factors cyclo_int_plusfactors
+    cyclo_poly cyclo_factors cyclo_plusfactors
+    cyclo_poly_iterate cyclo_lucas_cd cyclo_schinzel_cd
+    cyclo_int_factors cyclo_int_plusfactors
   );
-  use Math::Polynomial::Cyclotomic qw(:all);
+  use Math::Polynomial::Cyclotomic qw(:all);    # the same
 
   $p6 = cyclo_poly(6);                    # x^2-x+1
 
@@ -679,6 +680,19 @@ a partial factorization of I<x^n + 1> using cyclotomic and Aurifeuillean
 factors.
 
 =back
+
+=head1 EXPORT
+
+By default, nothing is exported into the namespace of the caller.
+On demand, these functions can be imported:
+
+I<cyclo_poly>, I<cyclo_factors>, I<cyclo_plusfactors>,
+I<cyclo_poly_iterate>, I<cyclo_lucas_cd>, I<cyclo_schinzel_cd>,
+I<cyclo_int_factors>, I<cyclo_int_plusfactors>.
+
+A shortcut to import all of these is:
+
+  use Math::Polynomial::Cyclotomic qw(:all);
 
 =head1 DIAGNOSTICS
 
