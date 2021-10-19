@@ -1,5 +1,9 @@
 Revision history for Math-Polynomial-Cyclotomic
 
+0.004   2021-10-19
+        - Fixed dependencies (closing issue #1).
+        - Extended SEE ALSO section.
+
 0.003   2021-10-17
         - Added cyclo_plusfactors.
         - Added cyclo_int_factors.

@@ -8,7 +8,7 @@ use strict;
 use warnings;
 use Carp qw(croak);
 use Math::BigInt try => 'GMP';
-use Math::Polynomial 1.014;
+use Math::Polynomial 1.019;
 use Math::Prime::Util qw(
     divisors factor factor_exp euler_phi gcd is_square_free is_power
     moebius kronecker vecprod
@@ -21,7 +21,7 @@ our @EXPORT_OK   = qw(
     cyclo_lucas_cd cyclo_schinzel_cd cyclo_int_factors cyclo_int_plusfactors
 );
 our %EXPORT_TAGS = (all => \@EXPORT_OK);
-our $VERSION     = '0.003';
+our $VERSION     = '0.004';
 
 # some polynomial with coefficient type Math::BigInt
 my $default = Math::Polynomial->new(Math::BigInt->new('1'));
@@ -337,8 +337,9 @@ Math::Polynomial::Cyclotomic - cyclotomic polynomials generator
 
 =head1 VERSION
 
-This documentation refers to Version 0.003 of Math::Polynomial::Cyclotomic.
-This release is dedicated to the memory of Andrzej Schinzel.
+This documentation refers to Version 0.004 of Math::Polynomial::Cyclotomic.
+The fall 2021 releases of this library are dedicated to the memory of
+Andrzej Schinzel.
 
 =head1 SYNOPSIS
 
@@ -800,18 +801,35 @@ L<Math::Prime::Util>
 =item *
 
 I<Cyclotomic polynomial> in Wikipedia,
-L<https://en.wikipedia.org/wiki/Cyclotomic_polynomial>,
+L<https://en.wikipedia.org/wiki/Cyclotomic_polynomial>
 
 =item *
 
-R. P. Brent, On computing factors of cyclotomic polynomials, in:
-Mathematics of Computation 61 (1993).
+Richard P. Brent, On computing factors of cyclotomic polynomials, in:
+Mathematics of Computation 61 (1993),
+L<https://maths-people.anu.edu.au/~brent/pub/pub135.html>
+
+=item *
+
+Bill Allombert & Karim Belabas, Practical Aurifeuillian Factorization (2008),
+in: Journal de ThE<eacute>orie des Nombres de Bordeaux 20, 10.5802/jtnb.641,
+L<https://www.researchgate.net/publication/267478352_Practical_Aurifeuillian_Factorization>
+
+=item *
+
+I<Andrzej Schinzel> in Wikipedia,
+L<https://en.wikipedia.org/wiki/Andrzej_Schinzel>
 
 =back
 
 =head1 AUTHOR
 
 Martin Becker, Blaubeuren, E<lt>becker-cpan-mp (at) cozap.comE<gt>
+
+=head1 ACKNOWLEDGEMENTS
+
+Thanks go to Slaven ReziE<263> for pointing out a dependency issue,
+and for CPAN smoketesting in general.  Good work!
 
 =head1 CONTRIBUTING
 

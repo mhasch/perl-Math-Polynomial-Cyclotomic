@@ -39,7 +39,7 @@ WriteMakefile(
         'Carp'              => '0',
         'Exporter'          => '0',
         'Math::BigInt'      => '0',
-        'Math::Polynomial'  => '1.014',
+        'Math::Polynomial'  => '1.019',
         'Math::Prime::Util' => '0.47',
     },
     SIGN => 1,
